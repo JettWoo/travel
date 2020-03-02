@@ -129,6 +129,7 @@ export default {
   /* display: flex
   flex-wrap: wrap
   flex-shrink: 1 */
+  margin-top: .1rem
   .icon
     width: 25%
     padding-bottom: 25%
