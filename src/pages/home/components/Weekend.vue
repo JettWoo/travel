@@ -4,7 +4,7 @@
       周末去哪儿
     </div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of weekendList" :key="item.id">
         <div class="item-img-wrapper">
           <img class="item-img" :src="item.imgUrl" alt="" />
         </div>
@@ -22,9 +22,14 @@
 <script>
 export default {
   name: 'HomeWeekend',
+  props: {
+    weekendList: {
+      type: Array
+    }
+  },
   data () {
     return {
-      recommendList: [
+      /* recommendList: [
         {
           id: '0001',
           imgUrl:
@@ -48,7 +53,7 @@ export default {
           desc:
             '海天佛国 观音道场 ——普陀山'
         }
-      ]
+      ] */
     }
   }
 }
@@ -57,14 +62,13 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/mixins.styl'
 .recommend-title
-  margin-top: .2rem
   line-height: .8rem
   background: #eeeeee
   text-index: .2rem
 .item-img-wrapper
   overflow: hidden
   height: 0
-  padding-bottom: 45%
+  padding-bottom: 38%
   .item-img
     width: 100%
 .item-info

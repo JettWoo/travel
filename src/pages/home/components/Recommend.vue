@@ -21,9 +21,14 @@
 <script>
 export default {
   name: 'HomeRecommend',
+  props: {
+    recommendList: {
+      type: Array
+    }
+  },
   data () {
     return {
-      recommendList: [
+      /* recommendList: [
         {
           id: '0001',
           imgUrl:
@@ -48,7 +53,7 @@ export default {
           desc:
             '杭州+乌镇+西塘纯玩3日游，慢慢悠悠，夜宿乌镇，升2晚5星，享50高餐标'
         }
-      ]
+      ] */
     }
   }
 }

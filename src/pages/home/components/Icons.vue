@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper v-if="swiperShow">
       <swiper-slide v-for="(page, index) of pages" :key='index'>
        <!--  <div class="icon">
           <div class="icon-img-wrapper">
@@ -28,6 +28,9 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconsList: Array
+  },
   data () {
     return {
       swiperOption: {
@@ -35,7 +38,7 @@ export default {
           el: '.swiper-pagination'
         },
         loop: true */
-      },
+      }/* ,
       iconsList: [
         {
           id: '0001',
@@ -99,10 +102,13 @@ export default {
             'https://picbed.qunarzz.com/1316dc82d1ce6259686d5a68880e5a9d.png',
           desc: '攻略'
         }
-      ]
+      ] */
     }
   },
   computed: {
+    swiperShow () {
+      return this.iconsList.length > 0
+    },
     pages () {
       const pages = []
       this.iconsList.forEach((item, index) => {
