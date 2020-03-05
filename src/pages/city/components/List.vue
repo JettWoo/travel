@@ -1,26 +1,33 @@
 <template>
   <div class="list" ref="wrapper">
     <div>
+      <!-- 当前城市 -->
       <div class="area">
         <div class="title border-topbottom">
           当前城市
         </div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">北京</div>
+            <div class="button">{{this.$store.state.city}}</div>
           </div>
         </div>
       </div>
+      <!-- 热门城市 -->
       <div class="area">
         <div class="title border-topbottom">
           热门城市
         </div>
         <div class="button-list">
-          <div class="button-wrapper" v-for='item of hot' :key="item.id">
+          <div class="button-wrapper"
+            v-for='item of hot'
+            :key="item.id"
+            @click="handleClick(item.name)"
+          >
             <div class="button">{{item.name}}</div>
           </div>
         </div>
       </div>
+      <!-- 城市列表 -->
       <div
         class="area"
         v-for='(item, key) of cities'
@@ -31,7 +38,12 @@
           {{key}}
         </div>
         <div class="item-list">
-          <div class="item border-bottom" v-for="innerItem of item" :key="innerItem.id">
+          <div
+            class="item border-bottom"
+            v-for="innerItem of item"
+            :key="innerItem.id"
+            @click="handleClick(innerItem.name)"
+          >
             {{innerItem.name}}
           </div>
         </div>
@@ -62,6 +74,12 @@ export default {
       if (this.letter) {
         this.scroll.scrollToElement(this.$refs[this.letter][0])
       }
+    }
+  },
+  methods: {
+    handleClick (city) {
+      this.$store.dispatch('changeCity', city)
+      this.$router.push('/')
     }
   }
 }

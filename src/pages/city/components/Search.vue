@@ -13,7 +13,9 @@
       <li
         class="search-item border-bottom"
         v-for='(item, index) of list'
-        :key='index'>
+        :key='index'
+        @click='handleClick (item.name)'
+      >
         {{item.name}}
       </li>
       <li v-show='hasNoData'>
@@ -68,6 +70,12 @@ export default {
   },
   mounted () {
     this.scroll = new Bs(this.$refs.search)
+  },
+  methods: {
+    handleClick (city) {
+      this.$store.dispatch('changeCity', city)
+      this.$router.push('/')
+    }
   }
 }
 </script>
