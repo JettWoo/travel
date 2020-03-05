@@ -31,10 +31,10 @@ export default {
       swiperOption: {
         pagination: {
           el: '.swiper-pagination',
-          type: 'fraction',
-          observeParents: true,
-          observe: true
-        }
+          type: 'fraction'
+        },
+        observer: true,
+        observeParents: true
       }
     }
   },
