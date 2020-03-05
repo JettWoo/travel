@@ -21,8 +21,13 @@
           </div>
         </div>
       </div>
-      <div class="area" v-for='(item, key) of cities' :key='key'>
-        <div class="title border-topbottom">
+      <div
+        class="area"
+        v-for='(item, key) of cities'
+        :key='key'
+        :ref='key'
+        >
+        <div class="title border-topbottom" >
           {{key}}
         </div>
         <div class="item-list">
@@ -45,10 +50,19 @@ export default {
     },
     cities: {
       type: Object
-    }
+    },
+    letter: String
   },
   mounted () {
     this.scroll = new Bs(this.$refs.wrapper)
+  },
+  watch: {
+    letter (newValue, oldValue) {
+      // console.log('newValue:', newValue)
+      if (this.letter) {
+        this.scroll.scrollToElement(this.$refs[this.letter][0])
+      }
+    }
   }
 }
 </script>
