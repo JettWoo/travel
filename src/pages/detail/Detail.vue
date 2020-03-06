@@ -2,7 +2,8 @@
   <div class="detail">
     <banner
     :sightName='sightName'
-    :bannerImg='bannerImg'></banner>
+    :bannerImg='bannerImg'
+    :gallaryImgs='gallaryImgs'></banner>
     <detail-header></detail-header>
     <detail-list :list='list'></detail-list>
     <div class="content"></div>
@@ -69,7 +70,8 @@ export default {
         this.sightName = data.sightName
         console.log(this.sightName)
         this.bannerImg = data.bannerImg
-        this.gallaryImg = data.gallaryImgs
+        this.gallaryImgs = data.gallaryImgs
+        console.log('this', this.gallaryImgs)
         this.list = data.categoryList
       }
     }

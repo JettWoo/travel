@@ -7,17 +7,24 @@
         <div class="banner-number"><span class="iconfont icontupian"></span> 39</div>
       </div>
     </div>
-    <common-gallary :imgs='gallaryImgs' v-show="showGallary" @close='handleClose'></common-gallary>
+    <fade>
+      <common-gallary
+        :imgs='gallaryImgs'
+        v-show="showGallary"
+        @close='handleClose'></common-gallary>
+    </fade>
   </div>
 </template>
 
 <script>
 import CommonGallary from 'common/gallary/Gallary'
+import Fade from 'common/fade/Fade'
 export default {
   name: 'Banner',
   props: ['sightName', 'bannerImg', 'gallaryImgs'],
   components: {
-    CommonGallary
+    CommonGallary,
+    Fade
   },
   data () {
     return {
