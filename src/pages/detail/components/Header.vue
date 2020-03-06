@@ -80,6 +80,7 @@ export default {
   color: #fff
   background: $bgColor
   font-size: .32rem
+  z-index: 2
   .header-back
     font-size: .4rem
     float: left
